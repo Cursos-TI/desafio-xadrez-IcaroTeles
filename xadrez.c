@@ -5,49 +5,113 @@
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
 int main() {
-
+    /*
     //========== DECLARAÇÃO DE VARIÁVEIS
 
+   
     int bispo = 1, torre = 1, rainha = 1;
+    */
 
     //========== Implementação de Movimentação do Bispo
+    printf ("Movimentação do BISPO:\n");
     
+    moverbispo (5);
+    
+    printf ("==========\n");
+
+    /*
+
     for (bispo; bispo <= 5; bispo++) {
-        printf (" Bispo Andou para a DIREITA/CIMA!\n");
+        printf ("DIREITA/CIMA!\n");
     }
 
-    printf ("==========\n");
+    */
 
     // ========== Implementação de Movimentação da Torre
 
+     printf ("Movimentação da TORRE:\n");
     
+     movertorre(5);
+
+     printf ("==========\n");
+
+    /*
+
     while (torre <= 5) {
-        printf (" Torre andou Direita!\n");
+        printf ("DIREITA!\n");
         torre++;
     }
     
-    printf ("==========\n");
+    */
 
     //==========  Implementação de Movimentação da Rainha
-    
+     
+    printf ("Movimentação da RAINHA:\n");
+
+    moverrainha(8);
+
+    printf ("==========\n");
+
+    /* 
     do {
-        printf ("Rainha andou para a ESQUERDA!\n");
+        printf ("ESQUERDA!\n");
         rainha++;
     } while (rainha <= 8);
     
-    printf ("==========\n");
-    
+    */
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+    //========== Implementação de Movimentação do Cavalo
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+    printf ("Movimentação do CAVALO:\n");
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    int cima;
+
+    while (cima == 0){
+     for (cima = 3; cima > 0; cima -= cima > 2 ? 1 : 2) {
+
+        printf ("CIMA!\n");
+    }
+        printf ("DIREITA!\n");
+        break; 
+    }
+
+     /*
+
+    int a, b = 0;
+
+    for (a = 1; a > 0; a--){
+        while (b < 2){
+            printf ("BAIXO!\n");
+            b++;
+        }
+
+        printf ("ESQUERDA!\n");
+    }
+        
+    */
 
     return 0;
+}
+
+//========== DECLARAÇÃO DE RECURSIVAS
+
+void moverbispo (int casas){
+    if (casas > 0) {
+        printf ("CIMA/DIREIRA!\n");
+        moverbispo (casas - 1);
+    }
+}
+
+void moverrainha (int casas){
+    if (casas > 0) {
+        printf ("ESQUERDA!\n");
+        moverrainha (casas - 1);
+    }
+}
+
+void movertorre (int casas){
+    if (casas > 0) {
+        printf ("DIREITA!\n");
+        moverbispo (casas - 1);
+    }
 }
